@@ -1,0 +1,43 @@
+type IntFloat struct{
+i : int
+f : float
+}
+
+fn max(x:int, y:int)->int{
+if (x>y) then x else y
+}
+
+
+fn max3(x:int, y:int, z:int) -> int {
+max(max(x,y), z)
+}
+
+fn sumTo100(n:int) ->int {
+if n>100 then 0 else n+sumTo100(n+1)
+}
+
+fn oSumTo100(n:int, s:int) ->int {
+if n>100 then s else oSumTo100(n+1, s+n)
+}
+
+extern fn printf(f:string, v:float, v2: int)->int;
+
+fn reTuple(x:int, y:float) -> (float, int){
+(y,x)
+}
+
+fn re1()->(int, float){
+(1,1.2)
+}
+
+fn re2()->(float, int){
+reTuple(re1())
+}
+
+fn re3(r:int, c: (int,int)) -> int{
+if (c._1>0) then 3*r*r else 0
+}
+
+fn testReTuple() -> int{
+printf("result is %lf, %lld\n", reTuple(2, 3.4)._0, reTuple(2, 3.4)._1)
+}
